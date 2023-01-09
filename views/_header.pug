@@ -1,0 +1,20 @@
+header.bg-dark.header
+  .container
+    .row
+      .col-12
+        nav.navbar.navbar-expand-lg.navbar-light.bg-dark
+          .container-fluid
+            a.navbar-brand.text-white.header__logo(href='/')
+              img(src='/img/logo-white.png' alt='Natours logo')
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+              span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+              ul.navbar-nav.ms-auto.mb-2.mb-lg-0.ul-res
+                if user
+                  a.nav__el.nav__el--logout.text-white Log out
+                  a.nav__el(href="/me")
+                    img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
+                    span=user.name.split(' ')[0]
+                else
+                  a.nav__el.text-white(href='/login') Log in
+                  a.nav__el.nav__el--cta(href='/signup') Sign up
